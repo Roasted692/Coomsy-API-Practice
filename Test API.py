@@ -40,12 +40,11 @@ def first_activity():
     most_expensive_price = alcohol_prices[0]
     for x in alcohol_number_prices.values():
         if most_expensive_price in x.values():
-            most_expensive_alcohol.append(list(x.keys()))
-    most_expensive_alcohol_name = most_expensive_alcohol[0]
+            most_expensive_alcohol = list(x.keys())
 
+    print(most_expensive_alcohol[0])
     # send fucking stupid answer
-    print(most_expensive_alcohol_name[0])
-    data = {'answer': "McDowell's No.1 Celebration"}
+    data = {'answer': f"{most_expensive_alcohol[0]}"}
     response = requests.post('http://127.0.0.1:5000/alcohol/activity/1',
                              headers = {'Accept': 'application/json',
                                         'Token': basic_auth("wayne", "Youre10PlyBud!")},
